@@ -78,7 +78,7 @@ body {
 
 .grid-main {
   display: grid;
-  grid-template-columns: 0.9fr 1.6fr 0.9fr;
+  grid-template-columns: 0.7fr 1.8fr 0.9fr;
   gap: 0.8rem;
 }
 
@@ -101,12 +101,13 @@ body {
 }
 
 .left-gallery img {
-  flex: 1 1 0;
+  flex: 0 0 108px;
   min-height: 0;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border: 2px solid #000;
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.45);
+  background: #fff;
 }
 
 .viewer {

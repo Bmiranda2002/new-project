@@ -1,7 +1,9 @@
 :root {
-  --white: #fff;
-  --ink: #090909;
-  --line: #d9d9d9;
+  --blue-1: #001d87;
+  --blue-2: #0035c7;
+  --paper: #eef3ff;
+  --ink: #090d21;
+  --line: #000;
 }
 
 * {
@@ -11,81 +13,154 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: var(--white);
+  font-family: "VT323", monospace;
   color: var(--ink);
+  background: #000;
 }
 
-.home-wrap {
-  width: min(1200px, 94vw);
-  margin: 2.2rem auto;
+.bg-tile {
+  position: fixed;
+  inset: 0;
+  background: url("mord-bg.gif") repeat;
+  background-size: 260px 260px;
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.page {
+  width: min(980px, 95vw);
+  margin: 1.2rem auto;
   display: grid;
-  gap: 1.4rem;
+  gap: 0.8rem;
 }
 
-.hero-screen {
-  border: 1px solid var(--line);
-  background: #fff;
-  min-height: 62vh;
+.window {
+  border: 2px solid var(--line);
+  background: var(--paper);
+  box-shadow: 0 0 0 2px #133295, 5px 5px 0 rgba(0, 0, 0, 0.6);
+  padding: 0.65rem;
+}
+
+.top {
+  background: linear-gradient(90deg, var(--blue-1), var(--blue-2));
+  color: #fff;
+}
+
+.brand {
+  font-family: "Bungee", sans-serif;
+  font-size: clamp(1.1rem, 3.3vw, 2rem);
+  text-transform: uppercase;
+}
+
+.top marquee {
+  margin-top: 0.25rem;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.58rem;
+}
+
+.tabs {
   display: grid;
-  place-items: center;
-  box-shadow: 0 12px 38px rgba(0, 0, 0, 0.12);
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.45rem;
+  background: #d8e6ff;
 }
 
-model-viewer {
-  width: min(860px, 100%);
-  height: min(62vh, 640px);
-  background: #fff;
-}
-
-.fallback {
-  padding: 1rem;
+.tabs span {
   text-align: center;
+  border: 2px solid #000;
+  background: linear-gradient(to bottom, #ff6038, #c10a82);
+  color: #fff;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  padding: 0.28rem;
+}
+
+.grid-main {
+  display: grid;
+  grid-template-columns: 0.9fr 1.6fr 0.9fr;
+  gap: 0.8rem;
+}
+
+.left h1,
+.center h2,
+.right h2,
+.directories h2 {
+  margin: 0 0 0.45rem;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.72rem;
+}
+
+.quote {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.left ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.counter {
+  margin-top: 0.6rem;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.55rem;
+}
+
+.viewer {
+  width: 100%;
+  height: 420px;
+  border: 2px solid #000;
+  background: #fff;
+  box-shadow: inset 0 0 0 2px #2f5df8;
+}
+
+.status {
+  margin: 0.5rem 0 0;
+  font-size: 1.05rem;
+}
+
+.right {
+  display: grid;
+  gap: 0.45rem;
+  align-content: start;
+}
+
+.right a,
+.directory-grid a {
+  text-decoration: none;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #000;
+  background: linear-gradient(to bottom, #20e4ff, #0f59f1);
+  color: #fff;
+  padding: 0.3rem 0.45rem;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.52rem;
 }
 
 .directories {
-  border: 1px solid var(--line);
-  background: #fff;
-  padding: 1.2rem;
-}
-
-h1 {
-  margin: 0;
-  letter-spacing: 0.08em;
-  font-size: clamp(1.2rem, 3vw, 2rem);
-}
-
-.subtitle {
-  margin: 0.4rem 0 1rem;
-  color: #444;
+  background: linear-gradient(to bottom, #e9f3ff, #d1e4ff);
 }
 
 .directory-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 0.6rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.55rem;
 }
 
-.directory-grid a {
-  border: 1px solid #111;
-  text-decoration: none;
-  color: #111;
-  padding: 0.6rem 0.8rem;
-  font-family: "Courier New", Courier, monospace;
-  background: #fff;
-}
-
-.directory-grid a:hover {
-  background: #111;
-  color: #fff;
-}
-
-@media (max-width: 720px) {
-  .hero-screen {
-    min-height: 50vh;
+@media (max-width: 980px) {
+  .tabs {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  model-viewer {
-    height: 50vh;
+  .grid-main {
+    grid-template-columns: 1fr;
+  }
+
+  .viewer {
+    height: 360px;
+  }
+
+  .directory-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

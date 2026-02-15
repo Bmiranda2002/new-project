@@ -4,29 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Hail The Lord Mord | Home</title>
-    <meta name="description" content="Homepage for Lord Mord directories." />
+    <meta name="description" content="Y2K homepage for Lord Mord directory portal." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Bungee&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="home.css" />
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   </head>
   <body>
-    <main class="home-wrap">
-      <section class="hero-screen" aria-label="Lord Mord 3D display">
-        <model-viewer
-          src="mordi-3d.usdz"
-          alt="Lord Mord 3D"
-          camera-controls
-          auto-rotate
-          interaction-prompt="none"
-          shadow-intensity="1"
-          exposure="1.1"
-        >
-          <p class="fallback">If this model does not render in your browser, open <a href="mordi-3d.usdz">mordi-3d.usdz</a>.</p>
-        </model-viewer>
+    <div class="bg-tile" aria-hidden="true"></div>
+
+    <main class="page">
+      <header class="top window">
+        <div class="brand">all hail the lord mord</div>
+        <marquee behavior="alternate" scrollamount="9">welcome 2 the directory nexus // best viewed with chaos energy // y2k forever</marquee>
+      </header>
+
+      <nav class="tabs window" aria-label="Homepage tabs">
+        <span>my profile</span>
+        <span>guestbook</span>
+        <span>friend space</span>
+        <span>music</span>
+        <span>blog</span>
+        <span>directories</span>
+      </nav>
+
+      <section class="grid-main">
+        <aside class="left window">
+          <h1>LORDMORD</h1>
+          <p class="quote">"In my restless dreams..."</p>
+          <ul>
+            <li>Status: Indevelopment</li>
+            <li>Realm: internet abyss</li>
+            <li>Mission: build the temple</li>
+          </ul>
+          <p class="counter">VISITORS: <span id="counter">000001</span></p>
+        </aside>
+
+        <section class="center window" aria-label="Lord Mord 3D panel">
+          <h2>MORD 3D CORE</h2>
+          <div id="mord-3d-view" class="viewer"></div>
+          <p id="model-status" class="status">Loading mordi-3d.usdz...</p>
+        </section>
+
+        <aside class="right window">
+          <h2>quick links</h2>
+          <a href="https://www.instagram.com/thelordmord/" target="_blank" rel="noreferrer">instagram</a>
+          <a href="https://x.com/OhLordMordi" target="_blank" rel="noreferrer">x</a>
+          <a href="https://www.youtube.com/@TheLordMord2006" target="_blank" rel="noreferrer">youtube</a>
+          <a href="mailto:ohlordmordi@gmail.com">email</a>
+        </aside>
       </section>
 
-      <section class="directories" aria-label="Site directories">
-        <h1>ALL HAIL THE LORD MORD</h1>
-        <p class="subtitle">Choose a directory</p>
+      <section class="directories window" aria-label="Directory list">
+        <h2>DIRECTORY SELECT</h2>
         <div class="directory-grid">
           <a href="./about/">about/</a>
           <a href="./projects/">projects/</a>
@@ -36,5 +66,7 @@
         </div>
       </section>
     </main>
+
+    <script type="module" src="home.js"></script>
   </body>
 </html>

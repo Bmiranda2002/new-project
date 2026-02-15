@@ -22,10 +22,14 @@ body {
   font-family: "VT323", monospace;
   font-size: 1.35rem;
   background:
-    radial-gradient(circle at 15% 20%, rgba(255, 62, 191, 0.24), transparent 35%),
-    radial-gradient(circle at 80% 10%, rgba(46, 252, 255, 0.28), transparent 36%),
-    repeating-linear-gradient(45deg, #02124d 0 14px, #001139 14px 28px),
+    radial-gradient(circle at 15% 20%, rgba(255, 62, 191, 0.2), transparent 35%),
+    radial-gradient(circle at 80% 10%, rgba(46, 252, 255, 0.22), transparent 36%),
+    url("mord-bg.gif"),
     var(--bg-dark);
+  background-repeat: no-repeat, no-repeat, repeat, repeat;
+  background-size: auto, auto, 240px 240px, auto;
+  background-position: center center, center center, top left, center center;
+  background-attachment: fixed, fixed, fixed, fixed;
 }
 
 .glitter-bg {

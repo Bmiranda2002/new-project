@@ -14,8 +14,16 @@ body {
   color: var(--ink);
   font-family: "VT323", monospace;
   font-size: 1.3rem;
-  background: url("../mord-bg.gif") repeat fixed;
-  background-size: 240px 240px;
+  background: #000;
+}
+
+.bg-tile {
+  position: fixed;
+  inset: 0;
+  background: url("../mord-bg.gif") repeat;
+  background-size: 260px 260px;
+  opacity: 0.9;
+  z-index: -1;
 }
 
 .wrap {

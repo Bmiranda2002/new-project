@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { USDZLoader } from "three/addons/loaders/USDZLoader.js";
 
 const counterElement = document.querySelector("#counter");
@@ -43,26 +44,47 @@ if (!container) {
     controls.minDistance = 1.2;
     controls.maxDistance = 10;
 
-    const loader = new USDZLoader();
-    loader.load(
-      "mordi-3d.usdz",
-      (model) => {
-        const box = new THREE.Box3().setFromObject(model);
-        const center = box.getCenter(new THREE.Vector3());
-        const size = box.getSize(new THREE.Vector3());
-        const largest = Math.max(size.x, size.y, size.z) || 1;
+    const fitAndAddModel = (model) => {
+      const box = new THREE.Box3().setFromObject(model);
+      const center = box.getCenter(new THREE.Vector3());
+      const size = box.getSize(new THREE.Vector3());
+      const largest = Math.max(size.x, size.y, size.z) || 1;
 
-        model.position.sub(center);
-        model.scale.setScalar(2 / largest);
-        scene.add(model);
+      model.position.sub(center);
+      model.scale.setScalar(2 / largest);
+      scene.add(model);
+    };
 
-        if (status) status.textContent = "mordi-3d.usdz loaded. Drag to rotate.";
+    const loadUsdzFallback = () => {
+      const usdzLoader = new USDZLoader();
+      usdzLoader.load(
+        "mordi-3d.usdz",
+        (usdzModel) => {
+          fitAndAddModel(usdzModel);
+          if (status) status.textContent = "mordi-3d.usdz loaded. Drag to rotate.";
+        },
+        undefined,
+        () => {
+          if (status) {
+            status.innerHTML =
+              "Could not render 3D model in this browser. Open <a href='mordi-3d.usdz'>mordi-3d.usdz</a>.";
+          }
+        }
+      );
+    };
+
+    const gltfLoader = new GLTFLoader();
+    gltfLoader.load(
+      "mordi-3d.glb",
+      (gltf) => {
+        const model = gltf.scene;
+        fitAndAddModel(model);
+        if (status) status.textContent = "mordi-3d.glb loaded. Drag to rotate.";
       },
       undefined,
       () => {
-        if (status) {
-          status.innerHTML = "Chrome failed to parse this USDZ. Open <a href='mordi-3d.usdz'>mordi-3d.usdz</a> directly.";
-        }
+        if (status) status.textContent = "GLB load failed, trying USDZ fallback...";
+        loadUsdzFallback();
       }
     );
 

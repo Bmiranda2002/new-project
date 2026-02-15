@@ -60,12 +60,12 @@ body {
 
 .tabs {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 0.45rem;
   background: #d8e6ff;
 }
 
-.tabs span {
+.tabs a {
   text-align: center;
   border: 2px solid #000;
   background: linear-gradient(to bottom, #ff6038, #c10a82);
@@ -73,6 +73,7 @@ body {
   font-family: "Press Start 2P", monospace;
   font-size: 0.5rem;
   padding: 0.28rem;
+  text-decoration: none;
 }
 
 .grid-main {
@@ -125,8 +126,7 @@ body {
   align-content: start;
 }
 
-.right a,
-.directory-grid a {
+.right a {
   text-decoration: none;
   border: 2px solid #000;
   box-shadow: 2px 2px 0 #000;
@@ -135,16 +135,6 @@ body {
   padding: 0.3rem 0.45rem;
   font-family: "Press Start 2P", monospace;
   font-size: 0.52rem;
-}
-
-.directories {
-  background: linear-gradient(to bottom, #e9f3ff, #d1e4ff);
-}
-
-.directory-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0.55rem;
 }
 
 @media (max-width: 980px) {
@@ -160,7 +150,7 @@ body {
     height: 360px;
   }
 
-  .directory-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .tabs {
+    grid-template-columns: 1fr;
   }
 }

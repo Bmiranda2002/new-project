@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Hail The Lord Mord | Web Relic 2004</title>
+    <meta
+      name="description"
+      content="A Y2K-inspired portfolio with neon gradients, stickers, guestbook vibes, and pixel-era energy."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&family=Bungee&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="crt-overlay" aria-hidden="true"></div>
+    <div class="glitter-bg" aria-hidden="true"></div>
+
+    <main class="page-shell">
+      <header class="top-banner window">
+        <p class="blink">You are now entering: LORDMORD-DOT-NET v2.6</p>
+        <marquee behavior="alternate" scrollamount="8">WELCOME 2 MY PORTFOLIO ZONE // BEST VIEWED WITH LOUD MUSIC // NO AI SLOP ALLOWED</marquee>
+      </header>
+
+      <nav class="nav-docks window" aria-label="Main">
+        <a href="#about">about.exe</a>
+        <a href="#projects">projects.zip</a>
+        <a href="#blog">blog.log</a>
+        <a href="#music">music.mp3</a>
+        <a href="#contact">contact.txt</a>
+      </nav>
+
+      <section class="hero-grid">
+        <article class="profile-card window" id="about">
+          <h1><span class="spark">★</span> All Hail The Lord Mord <span class="spark">★</span></h1>
+          <p class="tagline">LORDMORD</p>
+          <ul>
+            <li>Status / Location / Mission: <strong>Indevelopment</strong></li>
+          </ul>
+          <button id="sound-toggle" type="button">toggle synth mode</button>
+        </article>
+
+        <aside class="sticker-stack window" aria-label="Stickers and badges">
+          <p class="badge">under construction forever</p>
+          <p class="badge">made with html + css + spice</p>
+          <p class="badge">this site survives on vibes</p>
+          <p class="visitor-count">visitors: <span id="counter">000001</span></p>
+        </aside>
+      </section>
+
+      <section class="window projects" id="projects">
+        <h2>PROJECTS_2000X</h2>
+        <div class="project-list">
+          <article>
+            <h3>Coming Soon</h3>
+            <p>Project details will appear here soon.</p>
+            <a href="#" aria-label="Placeholder project link">view project</a>
+          </article>
+          <article>
+            <h3>Coming Soon</h3>
+            <p>Project details will appear here soon.</p>
+            <a href="#" aria-label="Placeholder project link">view project</a>
+          </article>
+          <article>
+            <h3>Coming Soon</h3>
+            <p>Project details will appear here soon.</p>
+            <a href="#" aria-label="Placeholder project link">view project</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="window blog" id="blog">
+        <h2>Confess To The Lord Mord</h2>
+        <p>Welcome to the confession booth. Leave your thoughts, stories, and internet confessions here.</p>
+        <div class="project-list">
+          <article>
+            <h3>Entry 01</h3>
+            <p>Add your first post by replacing this text in <code>index.html</code>.</p>
+            <a href="#" aria-label="Blog entry placeholder">read more</a>
+          </article>
+          <article>
+            <h3>Entry 02</h3>
+            <p>Share updates, lessons, and chaos from your latest projects.</p>
+            <a href="#" aria-label="Blog entry placeholder">read more</a>
+          </article>
+          <article>
+            <h3>Entry 03</h3>
+            <p>Drop ideas, hot takes, or links worth bookmarking.</p>
+            <a href="#" aria-label="Blog entry placeholder">read more</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="window music" id="music">
+        <h2>MORD'S MUSIC</h2>
+        <p>Paste a YouTube playlist URL (or playlist ID) and load it below.</p>
+        <div class="music-controls">
+          <input
+            id="playlist-input"
+            type="text"
+            placeholder="https://www.youtube.com/playlist?list=YOUR_PLAYLIST_ID"
+            value="https://www.youtube.com/watch?v=SWzqTQgNYyw&list=PLS5iYmimX3QxSEGnHTtCe-qMpgRZWXJ80"
+            aria-label="YouTube playlist URL or playlist ID"
+          />
+          <button id="load-playlist" type="button">load playlist</button>
+        </div>
+        <div class="music-frame-wrap">
+          <iframe
+            id="playlist-frame"
+            width="100%"
+            height="352"
+            src="https://www.youtube.com/embed/videoseries?list=PLS5iYmimX3QxSEGnHTtCe-qMpgRZWXJ80"
+            title="MORD'S MUSIC YouTube playlist"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+
+      <section class="window guestbook" id="contact">
+        <h2>LEAVE A MESSAGE</h2>
+        <p>Hit me up for collabs, freelance work, or internet side quests.</p>
+        <div class="contact-row">
+          <a href="mailto:ohlordmordi@gmail.com">email</a>
+          <a href="https://www.instagram.com/thelordmord/" target="_blank" rel="noreferrer">instagram</a>
+          <a href="https://x.com/OhLordMordi" target="_blank" rel="noreferrer">x</a>
+          <a href="https://www.youtube.com/@TheLordMord2006" target="_blank" rel="noreferrer">youtube</a>
+        </div>
+      </section>
+
+      <footer class="window footer">
+        <p>© <span id="year"></span> All Hail The Lord Mord // hosted on github pages</p>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

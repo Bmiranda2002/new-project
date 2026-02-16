@@ -94,7 +94,12 @@ body {
 
 .left {
   padding: 0.35rem;
-  height: 100%;
+  height: clamp(360px, 55vh, 520px);
+  aspect-ratio: 1 / 1;
+  align-self: center;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .left-gallery {
@@ -131,6 +136,10 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0.35rem;
 }
 
 .right {

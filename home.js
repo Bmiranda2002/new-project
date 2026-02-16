@@ -44,7 +44,7 @@ if (!container) {
     scene.background = new THREE.Color(0xffffff);
 
     const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.set(0, 1.2, 3.4);
+    camera.position.set(0, 1.3, 5.2);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -66,8 +66,8 @@ if (!container) {
     controls.enableDamping = true;
     controls.autoRotate = true;
     controls.autoRotateSpeed = 1.7;
-    controls.minDistance = 1.2;
-    controls.maxDistance = 10;
+    controls.minDistance = 2.2;
+    controls.maxDistance = 14;
 
     const fitAndAddModel = (model) => {
       const box = new THREE.Box3().setFromObject(model);
@@ -76,7 +76,7 @@ if (!container) {
       const largest = Math.max(size.x, size.y, size.z) || 1;
 
       model.position.sub(center);
-      model.scale.setScalar(2 / largest);
+      model.scale.setScalar(1.25 / largest);
       scene.add(model);
     };
 

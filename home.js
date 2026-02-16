@@ -10,6 +10,27 @@ if (counterElement) counterElement.textContent = String(visitCount).padStart(6, 
 
 const container = document.querySelector("#mord-3d-view");
 const status = document.querySelector("#model-status");
+const socialIcons = document.querySelectorAll(".social-icon img");
+
+socialIcons.forEach((img) => {
+  const defaultSrc = img.dataset.default;
+  const pressedSrc = img.dataset.pressed;
+  if (!defaultSrc || !pressedSrc) return;
+
+  const setDefault = () => {
+    img.src = defaultSrc;
+  };
+
+  img.addEventListener("pointerdown", () => {
+    img.src = pressedSrc;
+  });
+
+  img.addEventListener("pointerup", () => {
+    setTimeout(setDefault, 120);
+  });
+
+  img.addEventListener("pointerleave", setDefault);
+});
 
 if (!container) {
   if (status) status.textContent = "3D container missing on this page.";
@@ -58,7 +79,7 @@ if (!container) {
     const loadUsdzFallback = () => {
       const usdzLoader = new USDZLoader();
       usdzLoader.load(
-        "mordi-3d.usdz",
+        "images/mordi-3d.usdz",
         (usdzModel) => {
           fitAndAddModel(usdzModel);
           if (status) status.textContent = "mordi-3d.usdz loaded. Drag to rotate.";

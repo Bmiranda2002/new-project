@@ -10,9 +10,12 @@ if (counterElement) counterElement.textContent = String(visitCount).padStart(6, 
 
 const container = document.querySelector("#mord-3d-view");
 const status = document.querySelector("#model-status");
-const socialIcons = document.querySelectorAll(".social-icon img");
+const socialButtons = document.querySelectorAll(".social-icon");
 
-socialIcons.forEach((img) => {
+socialButtons.forEach((button) => {
+  const img = button.querySelector("img");
+  if (!img) return;
+
   const defaultSrc = img.dataset.default;
   const pressedSrc = img.dataset.pressed;
   if (!defaultSrc || !pressedSrc) return;
@@ -21,15 +24,16 @@ socialIcons.forEach((img) => {
     img.src = defaultSrc;
   };
 
-  img.addEventListener("pointerdown", () => {
+  const setPressed = () => {
     img.src = pressedSrc;
-  });
+  };
 
-  img.addEventListener("pointerup", () => {
+  button.addEventListener("pointerdown", setPressed);
+  button.addEventListener("pointerup", () => {
     setTimeout(setDefault, 120);
   });
-
-  img.addEventListener("pointerleave", setDefault);
+  button.addEventListener("pointercancel", setDefault);
+  button.addEventListener("pointerleave", setDefault);
 });
 
 if (!container) {

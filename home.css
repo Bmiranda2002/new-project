@@ -30,7 +30,7 @@ body {
 }
 
 .page {
-  width: min(1500px, 98vw);
+  width: min(2200px, 99vw);
   margin: 1rem auto;
   min-height: calc(100vh - 2rem);
   display: grid;
@@ -81,7 +81,7 @@ body {
 
 .grid-main {
   display: grid;
-  grid-template-columns: 0.9fr 1.8fr 0.9fr;
+  grid-template-columns: 0.55fr 4fr 0.55fr;
   gap: 0.8rem;
   min-height: clamp(560px, 70vh, 860px);
   align-items: stretch;
@@ -125,7 +125,7 @@ body {
   width: 100%;
   height: auto;
   aspect-ratio: 1 / 1;
-  min-height: 420px;
+  min-height: 840px;
   border: 0;
   background: transparent;
   box-shadow: none;
@@ -133,7 +133,7 @@ body {
 
 .center {
   display: block;
-  width: min(100%, clamp(500px, 68vh, 760px));
+  width: min(100%, clamp(1000px, 88vh, 1520px));
   height: auto;
   justify-self: center;
   align-self: center;

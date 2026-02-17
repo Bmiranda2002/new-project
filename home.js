@@ -40,12 +40,20 @@ if (container) {
     const scene = new THREE.Scene();
     scene.background = null;
 
-    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+    const getSize = () => {
+      const rect = container.getBoundingClientRect();
+      const width = Math.max(320, Math.floor(rect.width || container.clientWidth || 600));
+      const height = Math.max(320, Math.floor(rect.height || container.clientHeight || width));
+      return { width, height };
+    };
+
+    const initialSize = getSize();
+    const camera = new THREE.PerspectiveCamera(45, initialSize.width / initialSize.height, 0.1, 1000);
     camera.position.set(0, 1.1, 4.4);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setSize(initialSize.width, initialSize.height);
     renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
 
@@ -104,12 +112,14 @@ if (container) {
     );
 
     function onResize() {
-      camera.aspect = container.clientWidth / container.clientHeight;
+      const size = getSize();
+      camera.aspect = size.width / size.height;
       camera.updateProjectionMatrix();
-      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setSize(size.width, size.height);
     }
 
     window.addEventListener("resize", onResize);
+    requestAnimationFrame(onResize);
 
     function animate() {
       requestAnimationFrame(animate);

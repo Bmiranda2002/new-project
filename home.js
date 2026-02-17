@@ -72,8 +72,8 @@ if (container) {
     controls.enableDamping = true;
     controls.autoRotate = true;
     controls.autoRotateSpeed = 1.7;
-    controls.minDistance = 1.5;
-    controls.maxDistance = 10;
+    controls.enableZoom = false;
+    controls.enablePan = false;
 
     const fitAndAddModel = (model) => {
       const box = new THREE.Box3().setFromObject(model);
@@ -84,6 +84,17 @@ if (container) {
       model.position.sub(center);
       model.scale.setScalar(1.75 / largest);
       scene.add(model);
+
+      const fittedBox = new THREE.Box3().setFromObject(model);
+      const sphere = fittedBox.getBoundingSphere(new THREE.Sphere());
+      const radius = sphere.radius || 1;
+      const fov = THREE.MathUtils.degToRad(camera.fov);
+      const distance = (radius / Math.sin(fov / 2)) * 1.02;
+
+      camera.position.set(0, 0, distance);
+      camera.lookAt(0, 0, 0);
+      controls.target.set(0, 0, 0);
+      controls.update();
     };
 
     const loadUsdzFallback = () => {

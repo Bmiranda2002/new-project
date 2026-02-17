@@ -87,7 +87,6 @@ body {
   align-items: stretch;
 }
 
-.center h2,
 .right h2 {
   margin: 0 0 0.45rem;
   font-family: "Press Start 2P", monospace;
@@ -131,15 +130,10 @@ body {
   box-shadow: none;
 }
 
-.status {
-  margin: 0.5rem 0 0;
-  font-size: 1.05rem;
-}
-
 .center {
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  width: min(100%, clamp(420px, 60vh, 680px));
+  grid-template-rows: 1fr;
+  width: min(100%, clamp(500px, 68vh, 760px));
   height: auto;
   aspect-ratio: 1 / 1;
   min-height: 0;
@@ -148,7 +142,7 @@ body {
   background: transparent;
   border: 0;
   box-shadow: none;
-  padding: 0.35rem;
+  padding: 0;
 }
 
 .right {
@@ -214,7 +208,7 @@ body {
   }
 
   .center {
-    width: min(100%, 520px);
+    width: min(100%, 560px);
     aspect-ratio: 1 / 1;
   }
 

@@ -9,7 +9,6 @@ localStorage.setItem("visitCount", String(visitCount));
 if (counterElement) counterElement.textContent = String(visitCount).padStart(6, "0");
 
 const container = document.querySelector("#mord-3d-view");
-const status = document.querySelector("#model-status");
 const socialButtons = document.querySelectorAll(".social-icon");
 
 socialButtons.forEach((button) => {
@@ -36,15 +35,13 @@ socialButtons.forEach((button) => {
   button.addEventListener("pointerleave", setDefault);
 });
 
-if (!container) {
-  if (status) status.textContent = "3D container missing on this page.";
-} else {
+if (container) {
   try {
     const scene = new THREE.Scene();
     scene.background = null;
 
     const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.set(0, 1.3, 5.2);
+    camera.position.set(0, 1.1, 4.4);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -67,8 +64,8 @@ if (!container) {
     controls.enableDamping = true;
     controls.autoRotate = true;
     controls.autoRotateSpeed = 1.7;
-    controls.minDistance = 2.2;
-    controls.maxDistance = 14;
+    controls.minDistance = 1.5;
+    controls.maxDistance = 10;
 
     const fitAndAddModel = (model) => {
       const box = new THREE.Box3().setFromObject(model);
@@ -77,7 +74,7 @@ if (!container) {
       const largest = Math.max(size.x, size.y, size.z) || 1;
 
       model.position.sub(center);
-      model.scale.setScalar(1.25 / largest);
+      model.scale.setScalar(1.75 / largest);
       scene.add(model);
     };
 
@@ -87,15 +84,9 @@ if (!container) {
         "images/mordi-3d.usdz",
         (usdzModel) => {
           fitAndAddModel(usdzModel);
-          if (status) status.textContent = "mordi-3d.usdz loaded. Drag to rotate.";
         },
         undefined,
-        () => {
-          if (status) {
-            status.innerHTML =
-              "Could not render 3D model in this browser. Open <a href='mordi-3d.usdz'>mordi-3d.usdz</a>.";
-          }
-        }
+        () => {}
       );
     };
 
@@ -105,11 +96,9 @@ if (!container) {
       (gltf) => {
         const model = gltf.scene;
         fitAndAddModel(model);
-        if (status) status.textContent = "mordi-3d.glb loaded. Drag to rotate.";
       },
       undefined,
       () => {
-        if (status) status.textContent = "GLB load failed, trying USDZ fallback...";
         loadUsdzFallback();
       }
     );
@@ -130,9 +119,6 @@ if (!container) {
 
     animate();
   } catch (error) {
-    if (status) {
-      status.innerHTML = "3D initialization failed in Chrome. Open <a href='mordi-3d.usdz'>mordi-3d.usdz</a> directly.";
-    }
     console.error(error);
   }
 }

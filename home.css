@@ -45,8 +45,16 @@ body {
 }
 
 .top {
-  background: linear-gradient(90deg, var(--blue-1), var(--blue-2));
-  color: #fff;
+  width: 120px;
+  height: 120px;
+  justify-self: center;
+  align-self: center;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
 }
 
 .brand {
@@ -55,12 +63,6 @@ body {
   height: 100px;
   object-fit: contain;
   image-rendering: auto;
-}
-
-.top marquee {
-  margin-top: 0.25rem;
-  font-family: "Press Start 2P", monospace;
-  font-size: 0.58rem;
 }
 
 .tabs {

@@ -50,9 +50,10 @@ body {
 }
 
 .brand {
-  font-family: "Bungee", sans-serif;
-  font-size: clamp(1.1rem, 3.3vw, 2rem);
-  text-transform: uppercase;
+  display: block;
+  width: min(560px, 100%);
+  height: auto;
+  image-rendering: auto;
 }
 
 .top marquee {
